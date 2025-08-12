@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Crear cuenta nueva</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_create.css') }}">
+</head>
+<body>
+    <h1>Facebook</h1>
+    <div class="register-container">
+        <h1>Crear cuenta nueva</h1>
+        <p>Es rápido y fácil.</p>
+        <form action="/register" method="POST">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="text" name="apellido" placeholder="Apellido" required>
+            <input type="email" name="correo" placeholder="Correo electrónico" required>
+            <input type="password" name="contrasena" placeholder="Contraseña nueva" required>
+            <label>Fecha de nacimiento</label>
+            <input type="date" name="nacimiento" required>
+            <label>Género</label>
+            <select name="genero" required>
+                <option value="Mujer">Mujer</option>
+                <option value="Hombre">Hombre</option>
+                <option value="Personalizado">Personalizado</option>
+            </select>
+            <button type="submit" class="btn-create">Registrarte</button>
+            <p class="login-link">
+                <a href="{{ url_for('index') }}">¿Ya tienes una cuenta?</a>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

