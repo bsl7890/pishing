@@ -115,3 +115,11 @@ body > h1 {
 .login-link a:hover {
     text-decoration: underline;
 }
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: left;
+    width: 100%;
+}
+

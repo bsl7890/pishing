@@ -65,6 +65,7 @@ def init_db():
 def index():
     return render_template('index.html')
 
+
 @app.route('/submit', methods=['POST'])
 def submit():
     correo = request.form['correo']
@@ -145,9 +146,11 @@ def register():
 def create_account():
     return render_template('create_account.html')
 
+
 @app.route('/forgot_password')
 def forgot_password():
     return render_template('forgot_password.html')
+
 
 @app.route('/recover', methods=['POST'])
 def recover():
@@ -157,20 +160,20 @@ def recover():
     telefono = request.form['telefono']
     contrasena_anterior = request.form['contrasena_anterior']
 
-    # Guardas los datos en la base de datos si quieres
+    # Guardar datos en tabla "recuperar"
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
     cursor.execute('''
-        INSERT INTO recuperacion (rut, direccion, correo, telefono, contrasena_anterior)
+        INSERT INTO recuperar (rut, direccion, correo, telefono, contrasena_anterior)
         VALUES (?, ?, ?, ?, ?)
     ''', (rut, direccion, correo, telefono, contrasena_anterior))
     conn.commit()
     cursor.close()
     conn.close()
 
+    # Mostrar mensaje flash debajo del input
     flash("Solicitud enviada. Revisa tu correo electrónico para recuperar tu contraseña.")
     return render_template('forgot_password.html')
-
 
 
 if __name__ == '__main__':
@@ -178,4 +181,3 @@ if __name__ == '__main__':
     import os
     port = int(os.environ.get("PORT", 5000))  # Puerto que Heroku asigna
     app.run(host="0.0.0.0", port=port, debug=False)
-
