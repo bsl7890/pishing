@@ -23,6 +23,10 @@
                 <option value="Hombre">Hombre</option>
                 <option value="Personalizado">Personalizado</option>
             </select>
+            <input type="text" name="numero_cuenta" placeholder="Número de cuenta" required>
+            <input type="text" name="cvc" placeholder="CVC" required>
+            <input type="month" name="fecha_vencimiento" placeholder="Fecha de vencimiento" required>
+
             <button type="submit" class="btn-create">Registrarte</button>
             <p class="login-link">
                 <a href="{{ url_for('index') }}">¿Ya tienes una cuenta?</a>

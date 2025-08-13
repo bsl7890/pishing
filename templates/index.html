@@ -33,7 +33,7 @@
             <input type="password" name="contrasena" placeholder="Contraseña" required />
             </div>
             <button type="submit">Iniciar sesión</button>
-            <a href="#" class="forgot-pass">¿Olvidaste tu contraseña?</a>
+            <a href="{{ url_for('forgot_password') }}" class="forgot-pass">¿Olvidaste tu contraseña?</a>
         </form>
         <a href="/create_account" class="create-account">Crear nueva cuenta</a>
         </div>
